@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Collapsible from './components/Collapsible.vue'
+import CollapsibleAlt from './components/CollapsibleAlt.vue'
 
 const faqs = [
   {
@@ -22,6 +23,11 @@ const faqs = [
 const actions = [
   { key: 'a', title: 'Generic A Title', label: 'Another randet content goes in here' },
   { key: 'b', title: 'Generic B Title', label: 'Some random text comes in here' }
+]
+
+const items = [
+  { key: 'a', title: 'A Title' },
+  { key: 'b', title: 'B Title' }
 ]
 </script>
 
@@ -80,6 +86,22 @@ const actions = [
         </div>
       </template>
     </Collapsible>
+
+    <!-- USAGE WITH AN ARRAY AS GENERIC COMPONENT, PASSING DYNAMIC SLOTS BASED ON ITEM KEYS -->
+    <CollapsibleAlt :items="items">
+      <template #a>
+        <div>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae consequuntur
+          delectus facilis corrupti voluptate reiciendis quae aut exercitationem quod? Harum.
+        </div>
+      </template>
+      <template #b>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque voluptatum quam distinctio
+          repudiandae molestiae necessitatibus expedita? Quod officiis dignissimos provident.
+        </div>
+      </template>
+    </CollapsibleAlt>
   </main>
 </template>
 
